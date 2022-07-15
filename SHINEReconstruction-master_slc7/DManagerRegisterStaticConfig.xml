@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<DManagerRegisterConfig
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation='[SCHEMAPATH]/DManagerRegisterConfig.xsd'>
+
+  <manager> BPDStaticInfoXMLManager </manager>
+  <manager> BPDFixedManager </manager>
+  <manager> BPDStripGainFixedManager </manager>
+  <manager> BeamCounterGeometryFixedManager </manager>
+  <manager> BeamCounterPositionFixedManager </manager>
+  <manager> BeamCounterStaticInfoXMLManager </manager>
+  <manager> DRS4CalibrationManager </manager>
+  <manager> BeamCounterTimingFixedManager </manager>
+  <manager> G4GeometryFixedManager </manager>
+  <manager> G4MaterialFixedManager </manager>
+  <manager> GasBagGeometryFixedManager </manager>
+  <manager> GasBagStatusFixedManager </manager>
+  <manager> MagnetAlignmentFixedManager </manager>
+  <manager> MagnetGeometryFixedManager </manager>
+  <manager> MHTDCCalibrationFixedManager </manager>
+  <manager> TPCResidualsFixedManager </manager>
+  <manager> TPCGlobalT0FixedManager </manager>
+  <manager> TPCPhaseCalibrationFixedManager </manager>
+  <manager> TPCChamberT0FixedManager </manager>
+  <manager> TPCPadT0FixedManager </manager>
+  <manager> TPCPadGainFixedManager </manager>
+  <manager> TPCAlignmentGeometryFixedManager </manager>
+  <manager> TPCPadGeometryFixedManager </manager>
+  <manager> TPCTimeBinModeXMLManager </manager>
+  <manager> TPCDriftVelocityFixedManager </manager>
+  <manager> TPCSlowControlFixedManager </manager>
+  <manager> TPCChargeLossCorrectionFixedManager </manager>
+  <manager> TargetConfigFixedManager </manager>
+  <manager> TriggerChannelXMLManager </manager>
+  <manager> RunLogTextManager </manager>
+  <manager> RunLogHttpManager </manager>
+  <manager> RunFixedSettingsManager </manager>
+  <manager> MagneticFieldFixScaleFactorManager </manager>
+  <manager> PSDCalibFixedManager </manager>
+  <manager> PSDStaticInfoXMLManager </manager>
+  <manager> TOFStaticInfoXMLManager </manager>
+  <manager> PSDGeometryFixedManager </manager>
+  <manager> TOFAlignmentGeometryFixedManager </manager>
+  <manager> TOFInternalGeometryFixedManager </manager>
+  <manager> TOFStatusFixedManager </manager>
+  <manager> TOFFGeometryFixedManager </manager>
+  <manager> TOFFScintillatorFixedManager </manager>
+  <manager> TOFFStaticInfoManager </manager>
+  <manager> SiliconStaticInfoXMLManager </manager>
+  <manager> SiliconGeometryFixedManager </manager>
+  <manager> SiliconNoiseFixedManager </manager>
+  <manager> SiliconTypeFixedManager </manager>
+  <manager> TPCdEdxCalibConstantsTextManager </manager>
+  <manager> PteroDAQTPCFixedManager </manager>
+  <manager> PteroDAQGRCFixedManager </manager>
+  <manager> PteroDAQTriggerXMLManager </manager>
+  <manager> GRCAlignmentGeometryFixedManager </manager>
+  <manager> GRCInternalGeometryFixedManager </manager>
+  <manager> GRCWireGainFixedManager </manager>
+
+</DManagerRegisterConfig>

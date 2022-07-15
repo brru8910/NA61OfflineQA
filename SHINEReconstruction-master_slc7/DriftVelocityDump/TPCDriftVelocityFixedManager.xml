@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TPCDriftVelocityFixedManager
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="[SCHEMAPATH]/TPCDriftVelocityFixedManager.xsd">
+
+  <TPC name="VTPC1">
+    <driftVelocity unit="centimeter/microsecond"> 1.4 </driftVelocity>
+  </TPC>
+
+  <TPC name="VTPC2">
+    <driftVelocity unit="centimeter/microsecond"> 1.4 </driftVelocity>
+  </TPC>
+
+  <TPC name="MTPCL">
+    <driftVelocity unit="centimeter/microsecond"> 2.3 </driftVelocity>
+  </TPC>
+
+  <TPC name="MTPCR">
+    <driftVelocity unit="centimeter/microsecond"> 2.3 </driftVelocity>
+  </TPC>
+
+  <TPC name="GTPC">
+    <driftVelocity unit="centimeter/microsecond"> 0.95 </driftVelocity>
+  </TPC>
+
+  <TPC name="FTPC1">
+    <driftVelocity unit="centimeter/microsecond"> 2.3 </driftVelocity>
+  </TPC>
+
+  <TPC name="FTPC2">
+    <driftVelocity unit="centimeter/microsecond"> 2.3 </driftVelocity>
+  </TPC>
+
+  <TPC name="FTPC3">
+    <driftVelocity unit="centimeter/microsecond"> 2.3 </driftVelocity>
+  </TPC>
+
+  <TPC name="LMPDJD">
+    <driftVelocity unit="centimeter/microsecond"> 0.89 </driftVelocity>
+  </TPC>
+
+  <TPC name="LMPDJU">
+    <driftVelocity unit="centimeter/microsecond"> 0.89 </driftVelocity>
+  </TPC>
+
+  <TPC name="LMPDSU">
+    <driftVelocity unit="centimeter/microsecond"> 0.89 </driftVelocity>
+  </TPC>
+
+  <TPC name="LMPDSD">
+    <driftVelocity unit="centimeter/microsecond"> 0.89 </driftVelocity>
+  </TPC>
+
+  <TPC name="LMPDP">
+    <driftVelocity unit="centimeter/microsecond"> 0.89 </driftVelocity>
+  </TPC>
+
+</TPCDriftVelocityFixedManager>

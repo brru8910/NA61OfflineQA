@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- Configuration of Module ShineFileExporter -->
+
+<ShineFileExporter
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation='[SCHEMAPATH]/ShineFileExporter.xsd'>
+
+  <OutputFilename> shoe.root </OutputFilename>
+
+  <!-- uncomment to switch off certain branches -->
+  
+  <BranchStatusOff>
+      runTree.fRun.fBOSRecord
+      eventTree.fEvent.fRawEvent
+      eventTree.fEvent.fProcEvent
+      eventTree.fEvent.fProcEvent.fTPC.fChargeClouds
+      eventTree.fEvent.fBOSRecord
+  </BranchStatusOff>
+
+  <!-- uncomment to selectively switch on certain branches
+       (useful for e.g. setting first the RawEvent Off and then
+        only one particular branch on)
+  -->
+  
+  <BranchStatusOn>
+      eventTree.fEvent.fRawEvent.fBeam
+  </BranchStatusOn>
+
+</ShineFileExporter>

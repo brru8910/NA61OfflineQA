@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE TPCDriftVelocityDCSDumpManager SYSTEM "[CONFIGDIR]/ShineGeneral.dtd">
+
+<TPCDriftVelocityDCSDumpManager
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="[SCHEMAPATH]/TPCDriftVelocityDCSDumpManager.xsd">
+
+  <TPC name="VTPC1">
+    <driftVelocity>
+      <TextFiles unit_1 = "centimeter/microsecond">
+        VTPC1.txt
+      </TextFiles>
+    </driftVelocity>
+  </TPC>
+
+  <TPC name="VTPC2">
+    <driftVelocity>
+      <TextFiles unit_1 = "centimeter/microsecond">
+        VTPC2.txt
+      </TextFiles>
+    </driftVelocity>
+  </TPC>
+
+  <TPC name="MTPCL">
+    <driftVelocity>
+      <TextFiles unit_1 = "centimeter/microsecond">
+        MTPCL.txt
+      </TextFiles>
+    </driftVelocity>
+  </TPC>
+
+  <TPC name="MTPCR">
+    <driftVelocity>
+      <TextFiles unit_1 = "centimeter/microsecond">
+        MTPCR.txt
+      </TextFiles>
+    </driftVelocity>
+  </TPC>
+
+  <TPC name="GTPC">
+    <driftVelocity>
+      <TextFiles unit_1 = "centimeter/microsecond">
+        GTPC.txt
+      </TextFiles>
+    </driftVelocity>
+  </TPC>
+
+  <TPC name="FTPC1">
+    <driftVelocity>
+      <TextFiles unit_1 = "centimeter/microsecond">
+        FTPC1.txt
+      </TextFiles>
+    </driftVelocity>
+  </TPC>
+
+  <TPC name="FTPC2">
+    <driftVelocity>
+      <TextFiles unit_1 = "centimeter/microsecond">
+        FTPC2.txt
+      </TextFiles>
+    </driftVelocity>
+  </TPC>
+
+  <TPC name="FTPC3">
+    <driftVelocity>
+      <TextFiles unit_1 = "centimeter/microsecond">
+        FTPC3.txt
+      </TextFiles>
+    </driftVelocity>
+  </TPC>
+</TPCDriftVelocityDCSDumpManager>

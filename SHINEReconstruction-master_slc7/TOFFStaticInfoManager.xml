@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TOFFStaticInfoManager
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation='[SCHEMAPATH]/TOFFStaticInfo_DBManager.xsd'>
+
+  <ChannelMapEntry runStart="30542" runStop="37784">
+
+    <numberOfScintillators> 32 </numberOfScintillators>
+
+    <!--listOfTopPMTs are the scintillator Ids of top PMTs attached to this board-->
+    <!--listOfTOPPMTChannels are the corresponding global DRS channel numbers-->
+    <drsBoard>
+      <id> 1 </id>
+      <listOfTopPMTs>  
+	0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 
+	16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 
+      </listOfTopPMTs>
+      <listOfBottomPMTs> 
+	0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15
+	16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 
+      </listOfBottomPMTs>
+      <listOfTopPMTChannels> 
+	46 44 42 74 38 36 34 73 62 60 58 76 54 52 50 75
+	30 28 26 68 22 20 18 67 14 12 10 66 6  4  2  65
+      </listOfTopPMTChannels>
+      <listOfBottomPMTChannels> 
+	47 45 43 41 39 37 35 33 63 61 59 57 55 53 51 49
+	31 77 27 25 23 21 19 17 15 13 11 9  7  5  3  1
+      </listOfBottomPMTChannels>
+    </drsBoard>
+
+  </ChannelMapEntry>
+
+  <ChannelMapEntry runStart="40000" runStop="999999">
+    
+    <numberOfScintillators> 32 </numberOfScintillators>
+    
+    <drsBoard>
+      <id> 1184 </id>
+      <listOfTopPMTs>  0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 </listOfTopPMTs>
+      <listOfBottomPMTs> 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 </listOfBottomPMTs>
+      <listOfTopPMTChannels> 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 </listOfTopPMTChannels>
+      <listOfBottomPMTChannels> 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 </listOfBottomPMTChannels>
+    </drsBoard>
+
+    <drsBoard>
+      <id> 1185 </id>
+      <listOfTopPMTs>  16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 </listOfTopPMTs>
+      <listOfBottomPMTs> 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 </listOfBottomPMTs>
+      <listOfTopPMTChannels> 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 </listOfTopPMTChannels>
+      <listOfBottomPMTChannels> 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 </listOfBottomPMTChannels>
+    </drsBoard>
+  </ChannelMapEntry>
+
+
+</TOFFStaticInfoManager>

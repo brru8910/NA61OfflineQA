@@ -1,0 +1,50 @@
+Welcome to OfflineQA! This framework was developed by Brant Rumberger
+for the 2022 p+T2K NA61 data taking campaign. It was built using tools
+and contributions from many NA61 students and collaborators.
+
+This QA framework runs an instance of SHINE Offline on every chunk of
+data that is sent to CTA. The Module Sequence and configuration files
+used are located in the directory
+~/2022-p+T2K-OfflineQA/SHINEReconstruction-master_slc7/
+
+Running of this Module Sequence can be done locally by executing the
+script
+~/2022-p+T2K-OfflineQA/SHINEReconstruction-master_slc7/CopyFromCTAAndRunSHINE.sh -i [inputFile.pteraw] -d [Full directory path (CTA, EOS, etc)] 
+
+If running in this local mode, the output ROOT files will appear in
+the ~/2022-p+T2K-OfflineQA/SHINEReconstruction-master_slc7/ directory.
+
+This Module Sequence can be sent to run as an HTCondor job by running the script
+~/2022-p+T2K-OfflineQA/scripts/SubmitQAJob.sh [inputFile.pteraw] [Full directory path (CTA, EOS, etc)] 
+
+The output will appear instead in the direcrory
+~/2022-p+T2K-OfflineQA/EOSDropDirectory/. The SHINE logs will appear
+in the directory ~/2022-p+T2K-OfflineQA/log.bz2/. The HTCondor logs
+will appear in the directory
+~/2022-p+T2K-OfflineQA/work/[JobSubmissionTime].
+
+In the Module Sequence, QA modules are run (currently TPCClusterQA,
+TPCVertexQA, and TDAQQA). These modules produce histograms that can be
+combined later and written to a QA PDF.
+
+To create a QA PDF, call the script
+~/2022-p+T2K-OfflineQA/scripts/CreateQAPDF.sh. This will creat a QA
+PDF using all of the ROOT files currently in EOSDropDirectory. Be
+careful here! To remove the ROOT files in EOSDropDirectory, run the
+script ~/2022-p+T2K-OfflineQA/scripts/CleanROOTFiles.sh.
+
+To clean the logs, call the command
+~/2022-p+T2K-OfflineQA/scripts/CleanLogs.sh.
+
+TODO: Add description of adding histograms
+
+TODO: Implement acront and create QA PDF / clean ROOT files & logs
+automatically each day
+
+NOTE: Don't leave large files from tests in the
+.../SHINEReconstruction-master_slc7/ directory. These will be copied
+with _every_ job submitted to the .../work/ directory, and this will
+fill up the home directory (which has a 10 GB quota! FIXME!).
+
+Have fun!!
+-Brant, June 27th 2022

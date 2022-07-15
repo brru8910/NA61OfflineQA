@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- Configuration of Module V0Finder -->
+
+<V0FinderSG
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation='[SCHEMAPATH]/V0FinderSG.xsd'>
+
+  <!-- minimum and maximum z-values between which dca is searched for -->
+  <minimumZ unit="cm"> -900 </minimumZ>
+  <maximumZ unit="cm">  300 </maximumZ>
+
+  <!-- maximum DCA to be accepted as V0 candidate -->
+  <maxDCA unit="cm"> 1 </maxDCA>
+
+</V0FinderSG>

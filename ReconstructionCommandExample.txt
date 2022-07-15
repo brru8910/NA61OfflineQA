@@ -1,0 +1,20 @@
+Directory: 
+/eos/experiment/na61/data/test_period_April_2022/
+
+File: 
+run-001384x0001_2022-05-24_06-09-51.pteraw
+
+Example command (run from inside SHINEReconstruction-master_slc7 directory): 
+./CopyFromCTAAndRunSHINE.sh -i run-001402x0001_2022-05-24_16-22-14.pteraw -d /eos/experiment/na61/data/test_period_April_2022
+
+Example submit command (can run from anywhere):
+SubmitQAJob.sh run-001402x0001_2022-05-24_16-22-14.pteraw /eos/experiment/na61/data/test_period_April_2022
+
+To create a QA pdf manually from all ROOT files in ~/2022-p+T2K-OfflineQA/EOSDropDirectory, excecute:
+CreateQAPDF.sh
+
+To clear the ROOT files from ~/2022-p+T2K-OfflineQA/EOSDropDirectory, excecute:
+CleanROOTFiles.sh
+
+To clear the ROOT files from ~/2022-p+T2K-OfflineQA/EOSDropDirectory, excecute:
+CleanLogsFiles.sh

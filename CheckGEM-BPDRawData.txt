@@ -1,0 +1,12 @@
+na61qa is the production account used to store GEM-BPD raw data on
+CTA. This is an unfortunate workaround. Here is how to check the raw
+data directory on CTA:
+
+xrdfs root://eosctapublicdisk.cern.ch/ ls /eos/ctapublicdisk/archive/na61/raw/22/T2K_GEM
+
+Other commands after xrdfs and the host designation are also
+available, such as 'mv', 'rm', etc. Extreme caution should be used
+here, as this account has full permissions in the directory.
+
+Good luck!
+-Brant, June 29th 2022

@@ -1,0 +1,35 @@
+<!-- A dummy sequence for reconstruction -->
+<!-- ModuleSequence.NA49.xml -->
+
+<sequenceFile
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation='[SCHEMAPATH]/ModuleSequence.xsd'>
+
+  <enableTiming/>
+  <enableModuleTracing/>
+
+  <moduleControl>
+
+   <loop numTimes="unbounded">
+      <module> EventFileReaderSG               </module>
+      <module> DRS4CalibratorKA                </module>
+      <module> TPCClusterFinderAL              </module>
+      <module> ExBCorrectorSG                  </module>
+      <module> LocalTrackFinderBR              </module>
+      <module> GlobalTrackMergerBR             </module>
+      <module> BeamlineTPCTrackFitterBR        </module>
+      <module> MainVertexModuleBR              </module>
+      <module> V0FinderSG                      </module>
+      <module> V0FitterSG                      </module>
+      <module> NoiseClusterExcluderED          </module>
+      <!--<module> ShineFileExporterSG             </module>-->
+      <!-- QA Modules -->
+      <module> TPCClusterQA                    </module>      
+      <module> TPCVertexQA                     </module>
+      <module> TDAQQA                          </module>
+      <module> TOFFQualityAssessmentKA         </module>
+   </loop>
+
+  </moduleControl>
+
+</sequenceFile>

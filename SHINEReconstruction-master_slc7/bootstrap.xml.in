@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- $Id: bootstrap.xml.in 5013 2011-09-13 17:50:30Z petukhov $ -->
+
+<!DOCTYPE bootstrap SYSTEM '@CONFIGDIR@/ShineGeneral.dtd'  [
+  <!ENTITY standardStaticDetConfig SYSTEM '@CONFIGDIR@/standardStaticDetConfig.xml'>
+]>
+
+
+<bootstrap
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:xlink="http://cern.ch/na61/schema/types"
+   xsi:noNamespaceSchemaLocation='[SCHEMAPATH]/bootstrap.xsd'>
+
+  <schemaPathReplacements>
+    <replace old="[CONFIGDIR]" new="&configDir;"/>
+    <replace old="[SCHEMAPATH]" new="&configDir;"/>
+    <replace old="[SCHEMAPATH_IMPORTS]" new="&configDir;"/>
+    <replace old="[DATADIR]" new="&dataDir;"/>
+  </schemaPathReplacements>
+
+  &standardStaticDetConfig;
+
+  <centralConfig>
+
+    <configLink
+      id         = "DManagerRegister"
+      xlink:href = "DManagerRegisterStaticConfig.xml"/>
+
+    <configLink
+      id         = "ModuleSequence"
+      xlink:href = "ModuleSequence.xml"/>
+
+    <configLink
+      id         = "EventFileReader"
+      xlink:href = "EventFileReader.xml"/>
+
+    <configLink
+      id         = "ShineFileExporter"
+      xlink:href = "ShineFileExporter.xml"/>
+    
+    <configLink
+	id         = "TPCClusterFinderAL"
+        xlink:href = "TPCClusterFinderAL.xml"/>
+    
+    <configLink
+        id         = "DRS4CalibrationManager"
+        xlink:href = "./DRS4CalibrationManager.xml"/>
+
+    <configLink
+	id         = "ExBCorrectorSG"
+	xlink:href = "&configDir;/ExBCorrectorSG.xml"/>
+
+    <configLink
+       id         = "LocalTrackFinderBR"
+       xlink:href = "&configDir;/LocalTrackFinderBR.xml"/>
+
+    <configLink
+       id         = "GlobalTrackMergerBR"
+       xlink:href = "GlobalTrackMergerBR.xml"/>
+    
+    <configLink
+       id         = "BeamlineTPCTrackFitterBR"
+       xlink:href = "&configDir;/BeamlineTPCTrackFitterBR.xml"/>
+    
+    <configLink
+       id         = "MainVertexModuleBR"
+       xlink:href = "&configDir;/MainVertexModuleBR.xml"/>
+    
+    <configLink
+        id         = "V0FinderSG"
+        xlink:href = "./V0FinderSG.xml"/>
+
+    <configLink
+        id         = "V0FitterSG"
+        xlink:href = "&configDir;/V0FitterSG.xml"/>
+
+    <configLink
+	id         = "TPCClusterQA"
+        xlink:href = "&configDir;/TPCClusterQA.xml"/>
+    
+    <configLink
+	id         = "TPCVertexQA"
+        xlink:href = "&configDir;/TPCVertexQA.xml"/>
+        
+    <configLink
+	id         = "TDAQQA"
+        xlink:href = "&configDir;/TDAQQA.xml"/>
+        
+    <configLink
+        id         = "TOFFQualityAssessmentKA"
+        xlink:href = "&configDir;/TOFFQualityAssessmentKA.xml"/>
+
+  </centralConfig>
+
+</bootstrap>

@@ -1,0 +1,7 @@
+*.root
+*.pdf
+*.pteraw
+*~
+work/*
+log.bz2/*
+EOSDropDirectory/ChunkStorage

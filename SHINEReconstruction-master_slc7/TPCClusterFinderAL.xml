@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- Configuration of Module TPCClusterFinderAL -->
+
+<TPCClusterFinderAL
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation='[SCHEMAPATH]/TPCClusterFinderAL.xsd'>
+
+  <!-- Minimum time-slice index from where the reconstruction begins
+       (in order to reject noise from triggering in the first slices). -->
+  <minimumTimeSliceCut> 6 </minimumTimeSliceCut>
+  <!-- Maximum time-slice index where the reconstruction stops at
+       (in order to reject obviously off-time slices). -->
+  <maximumTimeSliceCut> 512 </maximumTimeSliceCut>
+  <!-- Minimum ADC amplitude where cluster finding is initiated. -->
+  <!-- Set to a large value of 15 here to restore cluster finding efficiency
+  in troublesome MTPC/VTPC sectors and in most of the GTPC. -->
+  <adcCutInitial> 9 </adcCutInitial>
+  <!-- Minimum ADC amplitude where cluster finding is continued. -->
+  <!-- Set to a large value of 13 here to restore cluster finding efficiency
+  in troublesome MTPC/VTPC sectors and in most of the GTPC. -->
+  <adcCutNeighborSearch> 6 </adcCutNeighborSearch>
+  <!-- Minimum width of clusters in time direction in units of time slices
+       (in order to reject a typical noise pattern). -->
+  <timeWidthCut> 1 </timeWidthCut>
+  <!-- Minimum sigma of clusters in time direction in units of time slices
+       (in order to reject a typical noise pattern). -->
+  <timeSigmaCut> 0.4 </timeSigmaCut>
+  <!-- Position resolution in pad direction (seems to be universal in LMPD). -->
+  <positionResolutionInPadrowDirection unit="cm"> 0.1 </positionResolutionInPadrowDirection>
+  <!-- Position resolution in drift time direction (seems to be universal in LMPD). -->
+  <positionResolutionInTimeDirection unit="microsecond"> 0.1 </positionResolutionInTimeDirection>
+
+  <!-- Set this variable to 1 if you do not want event-by-event correction to TPC clock phase. -->
+  <noTPCClockPhaseCorrection> 1 </noTPCClockPhaseCorrection>
+  <!-- Set this variable to 1 if you do not want global T0 correction. -->
+  <noGlobalT0Correction> 1 </noGlobalT0Correction>
+  <!-- Set this variable to 1 if you do not want chamber-by-chamber T0 correction. -->
+  <noChamberByChamberT0Correction> 1 </noChamberByChamberT0Correction>
+  <!-- Set this variable to 1 if you do not want pad-by-pad T0 correction. -->
+  <noPadByPadT0Correction> 1 </noPadByPadT0Correction>
+
+  <!-- Set this variable to 1 if you do not want pad-by-pad gain correction. -->
+  <noPadByPadGainCorrection> 1 </noPadByPadGainCorrection>
+
+  <!-- Set this variable to 1 if you do not want charge correction for charge loss during drift. -->
+  <noChargeLossCorrection> 1 </noChargeLossCorrection>
+
+  <!-- Set this variable to 1 if you want to specify drift velocity by hand. -->
+  <useCustomDriftVelocity> 0 </useCustomDriftVelocity>
+  <!-- Forced drift velocity value (if one uses custom value specified by user). -->
+  <customDriftVelocity unit="cm/microsecond"> 0.89 </customDriftVelocity>
+
+  <!-- Space delimited list of TPCs for which cluster finding should be performed. -->
+  <tpcList>
+    VTPC1
+    VTPC2
+    MTPCL
+    MTPCR
+    GTPC
+    FTPC1
+    FTPC2
+    FTPC3
+  </tpcList>
+
+  <!-- File name for debugging ASCII dump (empty string for none). -->
+  <asciiDumpFileName>  </asciiDumpFileName>
+
+</TPCClusterFinderAL>

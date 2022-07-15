@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<DRS4CalibrationList
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="[SCHEMAPATH]/DRS4Calibration_DBFormat.xsd">
+
+  <DRS4Calibration runStart="1" runStop="9999999"> 
+    <calibFile> /afs/cern.ch/user/n/na61qa/public/VCalib_2022-07-13.bin </calibFile>
+  </DRS4Calibration>
+
+</DRS4CalibrationList>
+

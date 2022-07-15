@@ -1,0 +1,11 @@
+executable	=	@EXECUTABLE@
++JobFlavour	=	"@QUEUE@"
+log		=	condor.log
+output		=	/dev/null
+error		=	/dev/null
+#output		=	stdout.log
+#error		=	error.log
+transfer_input_files	=	@TRANSFER_INPUT_FILES@
+on_exit_remove          = (ExitBySignal == False) && (ExitCode == 0)
+max_retries             = 1
+requirements = Machine =!= LastRemoteHost
