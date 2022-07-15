@@ -1,0 +1,150 @@
+\documentclass[11pt]{beamer}
+\usepackage{xcolor}
+\usepackage{multimedia}
+\usepackage{hyperref}
+%\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{parskip}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{rotating}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage[alsoload=physical]{siunitx}
+\usepackage{textcomp}
+\usepackage{array}
+\usepackage{xkeyval}
+\usepackage{subfigure}
+\graphicspath{{./plots/}}
+
+
+\title[QA]{GEM-BPD QA Report}
+\date{\today}
+
+\setbeamersize{text margin left=1mm,text margin right=1mm} 
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Occupancy Plots}
+\begin{figure}
+\centering
+\includegraphics[width=0.31\textwidth]{GEMBPD1Occupancy}
+\includegraphics[width=0.31\textwidth]{GEMBPD2Occupancy}
+\includegraphics[width=0.31\textwidth]{GEMBPD3Occupancy}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Profiles}
+\begin{figure}
+\centering
+\includegraphics[width=0.31\textwidth]{BPD1XProfile}
+\includegraphics[width=0.31\textwidth]{BPD2XProfile}
+\includegraphics[width=0.31\textwidth]{BPD3XProfile} \\
+\includegraphics[width=0.31\textwidth]{BPD1YProfile}
+\includegraphics[width=0.31\textwidth]{BPD2YProfile}
+\includegraphics[width=0.31\textwidth]{BPD3YProfile}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Profile Means}
+\begin{figure}
+\centering
+\includegraphics[width=0.31\textwidth]{BPD1XMean}
+\includegraphics[width=0.31\textwidth]{BPD2XMean}
+\includegraphics[width=0.31\textwidth]{BPD3XMean} \\
+\includegraphics[width=0.31\textwidth]{BPD1YMean}
+\includegraphics[width=0.31\textwidth]{BPD2YMean}
+\includegraphics[width=0.31\textwidth]{BPD3YMean}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Profile Widths}
+\begin{figure}
+\centering
+\includegraphics[width=0.31\textwidth]{BPD1XWidth}
+\includegraphics[width=0.31\textwidth]{BPD2XWidth}
+\includegraphics[width=0.31\textwidth]{BPD3XWidth} \\
+\includegraphics[width=0.31\textwidth]{BPD1YWidth}
+\includegraphics[width=0.31\textwidth]{BPD2YWidth}
+\includegraphics[width=0.31\textwidth]{BPD3YWidth}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Trigger Coincidence Occupancy Plots}
+\begin{figure}
+\centering
+\includegraphics[width=0.31\textwidth]{GEMBPD1CoincidenceOccupancy}
+\includegraphics[width=0.31\textwidth]{GEMBPD2CoincidenceOccupancy}
+\includegraphics[width=0.31\textwidth]{GEMBPD3CoincidenceOccupancy}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Trigger Coincidence Profiles}
+\begin{figure}
+\centering
+\includegraphics[width=0.31\textwidth]{BPD1XCoincidenceProfile}
+\includegraphics[width=0.31\textwidth]{BPD2XCoincidenceProfile}
+\includegraphics[width=0.31\textwidth]{BPD3XCoincidenceProfile} \\
+\includegraphics[width=0.31\textwidth]{BPD1YCoincidenceProfile}
+\includegraphics[width=0.31\textwidth]{BPD2YCoincidenceProfile}
+\includegraphics[width=0.31\textwidth]{BPD3YCoincidenceProfile}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Trigger Coincidence Profile Means}
+\begin{figure}
+\centering
+\includegraphics[width=0.31\textwidth]{BPD1XMeanCoincidence}
+\includegraphics[width=0.31\textwidth]{BPD2XMeanCoincidence}
+\includegraphics[width=0.31\textwidth]{BPD3XMeanCoincidence} \\
+\includegraphics[width=0.31\textwidth]{BPD1YMeanCoincidence}
+\includegraphics[width=0.31\textwidth]{BPD2YMeanCoincidence}
+\includegraphics[width=0.31\textwidth]{BPD3YMeanCoincidence}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Trigger Coincidence Profile Widths}
+\begin{figure}
+\centering
+\includegraphics[width=0.31\textwidth]{BPD1XWidthCoincidence}
+\includegraphics[width=0.31\textwidth]{BPD2XWidthCoincidence}
+\includegraphics[width=0.31\textwidth]{BPD3XWidthCoincidence} \\
+\includegraphics[width=0.31\textwidth]{BPD1YWidthCoincidence}
+\includegraphics[width=0.31\textwidth]{BPD2YWidthCoincidence}
+\includegraphics[width=0.31\textwidth]{BPD3YWidthCoincidence}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Efficiencies}
+\begin{figure}
+\centering
+\includegraphics[width=0.3\textwidth]{GEMBPD1Efficiency}
+\includegraphics[width=0.3\textwidth]{GEMBPD2Efficiency}
+\includegraphics[width=0.3\textwidth]{GEMBPD3Efficiency}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Efficiencies}
+\begin{figure}
+\centering
+\includegraphics[width=0.85\textwidth]{eventIdTransferGraph}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Decoded Event Id Information}
+\begin{figure}
+\centering
+\includegraphics[width=0.85\textwidth]{eventIdVsTime}
+\end{figure}
+\end{frame}
+
+
+\end{document}
