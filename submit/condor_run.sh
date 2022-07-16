@@ -106,13 +106,13 @@ if [ $EXITCODE -eq 0 ]; then
     ls *.TPCClusterQA.root
     ls *.TPCVertexQA.root
     ls *.TDAQQA.root
-    ls *.FTOFQA.root
+    ls *.TOFFQA.root
     echo 'To directory:'
     echo $reco_drop_dir
     cp -f *.TPCClusterQA.root $reco_drop_dir
     cp -f *.TPCVertexQA.root $reco_drop_dir
     cp -f *.TDAQQA.root $reco_drop_dir
-    cp -f *.FTOFQA.root $reco_drop_dir
+    cp -f *.TOFFQA.root $reco_drop_dir
 fi
 
 exit $EXITCODE

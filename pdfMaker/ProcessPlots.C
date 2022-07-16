@@ -1,5 +1,5 @@
 #include <iostream>
-#include <list>
+#include <set>
 #include <vector>
 #include <TFile.h>
 #include <TH1.h>
@@ -15,6 +15,28 @@
 #include <algorithm>
 
 using namespace std;
+
+void DrawWithUncertaintyEnvelope(TObject* object) {
+  //This must be a TGraphErrors*!
+  if (string(object->ClassName()) != string("TGraphErrors")) {
+    cout << "[ERROR] Tried to fit for Max ADC on a non-TGraphErrors object!" << endl;
+  }
+  
+  cout << "Making nice envelope plot for object " << object->GetName() << endl;
+
+  TGraphErrors* graph = static_cast<TGraphErrors*>(object);
+
+  const int color = graph->GetMarkerColor();
+
+  graph->SetLineColor(color);
+  graph->SetLineWidth(4);
+  graph->SetFillColor(color);
+  graph->SetFillColorAlpha(color,0.5);
+  // graph->Draw("a3");
+  // graph->Draw("LX SAME");
+  graph->Draw("alp");
+  // graph->Draw("LX SAME");
+}
 
 void FitForMaxADC(TObject* object) {
   TLatex label; //for MaxADC
@@ -45,8 +67,25 @@ void ProcessPlots(const char* filename="../OfflineQA.root")
 {
   vector<string> objectsToNotDraw {"TTree","TNtuple"}; 
 
-  //Add histogram names with special draw options here. Key: Histogram
+  //Objects for which to draw uncertainty envelope. For scalers
+  //graphs.
+  set<string> uncertaintyEnvelopeObjects {
+    "T2T1Ratio",
+      "T4T3Ratio",
+      "T1T3Ratio",
+      "T1S1Ratio",
+      "T3S1Ratio",
+      "S1Intensity"
+      };
+
+  //Add object names with special draw options here. Key: Histogram
   //name. Value: Draw options.
+  map<string,string> specialDrawOptionsMap {
+    {"runNumberGraph","AL"},
+    {"eventIdGraph","AL"}
+  };
+  
+  //Default special draw options for plot types.
   map<string,string> drawOptionsMap {
     {"TGraph","AP"},
       {"TGraphErrors","AP"},
@@ -115,8 +154,14 @@ void ProcessPlots(const char* filename="../OfflineQA.root")
       if (name.find(*it) != string::npos)
 	setLogZ = true;
 
-    const string drawOptions = (drawOptionsMap.find(type) != drawOptionsMap.end()) ? 
-      drawOptionsMap[type] : "";
+    //Determine draw options.
+    string drawOptions = "";
+    if (specialDrawOptionsMap.find(name) != specialDrawOptionsMap.end()) {
+      drawOptions = specialDrawOptionsMap[name];
+    }
+    else if (drawOptionsMap.find(type) != drawOptionsMap.end()) {
+      drawOptions = drawOptionsMap[type];
+    }
     
     //Make sure we should draw this type of object.
     if (find(objectsToNotDraw.begin(),objectsToNotDraw.end(),type) != objectsToNotDraw.end())
@@ -125,7 +170,10 @@ void ProcessPlots(const char* filename="../OfflineQA.root")
     TCanvas c("QACanvas", "", 900, 600);
 
     //Draw with options. Include special options, if desired.
-    obj->Draw(drawOptions.c_str());
+    if (uncertaintyEnvelopeObjects.find(name) != uncertaintyEnvelopeObjects.end())
+      DrawWithUncertaintyEnvelope(obj);
+    else
+      obj->Draw(drawOptions.c_str());
 
     if (setLogX)
       c.SetLogx();

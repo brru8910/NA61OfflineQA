@@ -21,7 +21,7 @@ fi
 #If you are uncertain about how many logs to preserve, check number of
 #running jobs with 'condor_q'for an idea and give yourself plenty of
 #overhead.
-nLogsToKeep=500
+nLogsToKeep=100
 
 #Clean out Condor logs (uncompressed). Use find, which does not have
 #the result list limitations of ls (or rm). Pipe output to head,

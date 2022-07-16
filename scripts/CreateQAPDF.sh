@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#Number of most-recent files to hadd. 
+numberOfFiles=1000
+
 if [[ $# -gt 1 ]]
 then
     echo "Incorrect usage! Usage: ./CreateQAPDF [optional run number, properly zero-padded]"
@@ -8,10 +11,13 @@ fi
 
 runNumber=$1
 
-cd /afs/cern.ch/user/n/na61qa/2022-p+T2K-OfflineQA/EOSDropDirectory
+EOSDropDirectory='/afs/cern.ch/user/n/na61qa/2022-p+T2K-OfflineQA/EOSDropDirectory'
+pdfMakerDirectory='/afs/cern.ch/user/n/na61qa/2022-p+T2K-OfflineQA/pdfMaker'
+
+cd $EOSDropDirectory
 
 #List of QA rootfile template names.
-qaFiles=("TPCClusterQA" "TPCVertexQA" "TDAQQA" "FTOFQA")
+qaFiles=("TPCClusterQA" "TPCVertexQA" "TDAQQA" "TOFFQA")
 
 for qaName in "${qaFiles[@]}"
 do
@@ -25,17 +31,16 @@ do
     echo "qaName: "$qaName 
     echo 'Match string: '$matchString
     #Get QA histogram files.
-    echo 'command: ls -rt ./'$matchString' | haddList'$qaName'.txt'
-    ls -rt ./$matchString > haddList$qaName.txt
-    pwd
+    echo 'command: ls -rt '$EOSDropDirectory'/'$matchString' | tail -n '$numberOfFiles' | sort > haddList'$qaName'.txt'
+    ls -rt $EOSDropDirectory'/'$matchString | tail -n $numberOfFiles | sort > haddList$qaName.txt
     #hadd files.
     hadd -k -f $qaName.root `cat haddList$qaName.txt`
     #Export plots to PNG files.
-    cd pdfMaker
-    root -b -q 'ProcessPlots.C("../'$qaName'.root")'
+    cd $pdfMakerDirectory
+    root -b -q 'ProcessPlots.C("'$EOSDropDirectory'/'$qaName'.root")'
     #Remove hadd'ed files and lists of files.
-    cd ..
-    r $qaName.root
+    cd $EOSDropDirectory
+    rm $qaName.root
     rm haddList$qaName.txt
 done
 
@@ -46,10 +51,10 @@ then
     runString='run-'$runNumber'-'
 fi
 
-cd pdfMaker
+cd $pdfMakerDirectory
 pdflatex OfflineQASlides.tex
 qaPDFName="OfflineQA-"$runString`date +"%Y-%m-%d"`"-"`date +"%H.%M.%S"`".pdf"
-mv OfflineQASlides.pdf ../QAPDFs/General/$qaPDFName
+mv OfflineQASlides.pdf $EOSDropDirectory'/QAPDFs/General/'$qaPDFName
 
 #Clean up.
 rm *.aux *.log *.nav *.out *.snm *.toc

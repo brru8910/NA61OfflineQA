@@ -8,7 +8,9 @@ fi
 
 runNumber=$1
 
-qaDir="/afs/cern.ch/user/n/na61qa/2022-p+T2K-OfflineQA/EOSDropDirectory/GEM-BPD"
+EOSDropDirectory='/afs/cern.ch/user/n/na61qa/2022-p+T2K-OfflineQA/EOSDropDirectory'
+qaDir=$EOSDropDirectory'/GEM-BPD'
+pdfMakerDirectory='/afs/cern.ch/user/n/na61qa/2022-p+T2K-OfflineQA/pdfMaker'
 
 cd $qaDir
 
@@ -27,16 +29,15 @@ do
     echo "qaName: "$qaName 
     echo 'Match string: '$matchString
     #Get QA histogram files.
-    echo 'command: ls -rt '$qaDir'/'$matchString' | haddList'$qaName'.txt'
+    echo 'command: ls -rt '$qaDir'/'$matchString' > haddList'$qaName'.txt'
     ls -rt ./$matchString > haddList$qaName.txt
-    pwd
     #hadd files.
     hadd -k -f $qaName.root `cat haddList$qaName.txt`
     #Export plots to PNG files.
-    cd ../pdfMaker
-    root -b -q 'ProcessGEMBPDPlots.C("../GEM-BPD/'$qaName'.root")'
+    cd $pdfMakerDirectory
+    root -b -q 'ProcessGEMBPDPlots.C("'$qaDir'/'$qaName'.root")'
     #Remove hadd'ed files and lists of files.
-    cd ../GEM-BPD
+    cd $qaDir
     rm $qaName.root
     rm haddList$qaName.txt
 done
@@ -48,10 +49,10 @@ then
     runString='run-'$runNumber'-'
 fi
 
-cd ../pdfMaker
+cd $pdfMakerDirectory
 pdflatex GEMBPDQASlides.tex
 qaPDFName="GEMBPDQA-"$runString`date +"%Y-%m-%d"`"-"`date +"%H.%M.%S"`".pdf"
-mv GEMBPDQASlides.pdf ../QAPDFs/GEM-BPD/$qaPDFName
+mv GEMBPDQASlides.pdf $EOSDropDirectory'/QAPDFs/GEM-BPD/'$qaPDFName
 
 #Clean up.
 rm *.aux *.log *.nav *.out *.snm *.toc

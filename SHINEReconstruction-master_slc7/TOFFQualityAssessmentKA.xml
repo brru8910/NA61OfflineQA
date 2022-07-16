@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TOFFQualityAssessmentKA
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation='[SCHEMAPATH]/TOFFQualityAssessmentKA.xsd'>
+
+  <!--1 to use the signal speed set here instead of TOFFScintillatorManager-->
+  <useSignalSpeed> 1 </useSignalSpeed>
+
+  <!--Approximate value for light prop speed in the scintillators. Needed for the y-pos rec-->
+  <signalSpeed unit='centimeter/nanosecond'> 15 </signalSpeed>
+
+  <!--1 to use to the T0s in TOFFScintManager, 0 to not use them-->
+  <useT0s> 0 </useT0s>
+
+  <!--Only plot traces with amplitude above this value. In mV-->
+  <minAmplitudeCut> 40 </minAmplitudeCut>
+
+  <qaFileName> TOFFQA.root </qaFileName>
+
+  <histogram1D id="PMTAmp">
+    <nBinsX>     200 </nBinsX>
+    <xMin>        0 </xMin>
+    <xMax>        1300 </xMax>
+    <histTitle> PMT_Amplitude </histTitle>
+    <xAxisTitle> Amplitude [mV] </xAxisTitle>
+    <yAxisTitle> Entries </yAxisTitle>
+  </histogram1D>
+
+  <histogram1D id="ScintOccupancy">
+    <nBinsX>     32 </nBinsX>
+    <xMin>        0 </xMin>
+    <xMax>        32 </xMax>
+    <histTitle>  Scintillator Occupancy </histTitle>
+    <xAxisTitle> Scintillator Id </xAxisTitle>
+    <yAxisTitle> Entries </yAxisTitle>
+  </histogram1D>
+
+  <histogram1D id="HitsPerEvent">
+    <nBinsX>     20 </nBinsX>
+    <xMin>        0 </xMin>
+    <xMax>        20 </xMax>
+    <histTitle>  Scintillator Hits Per Event </histTitle>
+    <xAxisTitle> Total Hits </xAxisTitle>
+    <yAxisTitle> Entries </yAxisTitle>
+  </histogram1D>
+
+  <histogram2D id="ScintAmp">
+    <nBinsX>     200 </nBinsX>
+    <xMin>        0 </xMin>
+    <xMax>        1300 </xMax>
+    <nBinsY>     50 </nBinsY>
+    <yMin> 0 </yMin>
+    <yMax> 1300 </yMax>
+    <histTitle> Amplitude_TopvsBottom </histTitle>
+    <xAxisTitle> Amplitude [mV] </xAxisTitle>
+    <yAxisTitle> Amplitude [mV] </yAxisTitle>
+  </histogram2D>
+
+  <histogram2D id="HitXY">
+    <nBinsX>     32 </nBinsX>
+    <xMin>        0 </xMin>
+    <xMax>        32 </xMax>
+    <nBinsY>     50 </nBinsY>
+    <yMin> -200 </yMin>
+    <yMax> 200 </yMax>
+    <histTitle> Hit XY </histTitle>
+    <xAxisTitle> Scintillator Id </xAxisTitle>
+    <yAxisTitle> Y [cm] </yAxisTitle>
+  </histogram2D>
+
+</TOFFQualityAssessmentKA>

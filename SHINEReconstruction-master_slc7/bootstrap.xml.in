@@ -88,7 +88,7 @@
         
     <configLink
         id         = "TOFFQualityAssessmentKA"
-        xlink:href = "&configDir;/TOFFQualityAssessmentKA.xml"/>
+        xlink:href = "TOFFQualityAssessmentKA.xml"/>
 
   </centralConfig>
 
