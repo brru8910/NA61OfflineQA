@@ -18,16 +18,16 @@
 
   <qaFileName> TOFFQA.root </qaFileName>
 
-  <histogram1D id="PMTAmp">
+  <histogram1D id="pmtAmplitude">
     <nBinsX>     200 </nBinsX>
     <xMin>        0 </xMin>
     <xMax>        1300 </xMax>
-    <histTitle> PMT_Amplitude </histTitle>
+    <histTitle>   </histTitle>
     <xAxisTitle> Amplitude [mV] </xAxisTitle>
     <yAxisTitle> Entries </yAxisTitle>
   </histogram1D>
 
-  <histogram1D id="ScintOccupancy">
+  <histogram1D id="scintillatorOccupancy">
     <nBinsX>     32 </nBinsX>
     <xMin>        0 </xMin>
     <xMax>        32 </xMax>
@@ -36,7 +36,7 @@
     <yAxisTitle> Entries </yAxisTitle>
   </histogram1D>
 
-  <histogram1D id="HitsPerEvent">
+  <histogram1D id="hitsPerEvent">
     <nBinsX>     20 </nBinsX>
     <xMin>        0 </xMin>
     <xMax>        20 </xMax>
@@ -45,19 +45,19 @@
     <yAxisTitle> Entries </yAxisTitle>
   </histogram1D>
 
-  <histogram2D id="ScintAmp">
+  <histogram2D id="pmtAmplitudeCorrelationScintillator">
     <nBinsX>     200 </nBinsX>
     <xMin>        0 </xMin>
     <xMax>        1300 </xMax>
     <nBinsY>     50 </nBinsY>
     <yMin> 0 </yMin>
     <yMax> 1300 </yMax>
-    <histTitle> Amplitude_TopvsBottom </histTitle>
+    <histTitle> PMT Amplitude Correlation, Scintillator </histTitle>
     <xAxisTitle> Amplitude [mV] </xAxisTitle>
     <yAxisTitle> Amplitude [mV] </yAxisTitle>
   </histogram2D>
 
-  <histogram2D id="HitXY">
+  <histogram2D id="hitXY">
     <nBinsX>     32 </nBinsX>
     <xMin>        0 </xMin>
     <xMax>        32 </xMax>
