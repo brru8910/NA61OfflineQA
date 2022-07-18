@@ -69,4 +69,28 @@
     <yAxisTitle> Y [cm] </yAxisTitle>
   </histogram2D>
 
+  <histogram2D id="trackXY">
+    <nBinsX>     100 </nBinsX>
+    <xMin>        -250 </xMin>
+    <xMax>        250 </xMax>
+    <nBinsY>    100 </nBinsY>
+    <yMin> -110 </yMin>
+    <yMax> 110 </yMax>
+    <histTitle> MTPC Track Positions at TOFF Wall </histTitle>
+    <xAxisTitle> Track X [cm] </xAxisTitle>
+    <yAxisTitle> Track Y [cm] </yAxisTitle>
+  </histogram2D>
+
+  <histogram2D id="efficiencyXY">
+    <nBinsX>     100 </nBinsX>
+    <xMin>        -250 </xMin>
+    <xMax>        250 </xMax>
+    <nBinsY>    100 </nBinsY>
+    <yMin> -110 </yMin>
+    <yMax> 110 </yMax>
+    <histTitle>  TOFF Wall Efficiency </histTitle>
+    <xAxisTitle> Track X [cm] </xAxisTitle>
+    <yAxisTitle> Track Y [cm] </yAxisTitle>
+  </histogram2D>
+
 </TOFFQualityAssessmentKA>
