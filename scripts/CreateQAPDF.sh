@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Number of most-recent files to hadd. 
-numberOfFiles=1000
+numberOfFiles=2000
 
 if [[ $# -gt 1 ]]
 then

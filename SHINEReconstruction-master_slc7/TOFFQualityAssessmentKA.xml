@@ -14,7 +14,7 @@
   <useT0s> 0 </useT0s>
 
   <!--Only plot traces with amplitude above this value. In mV-->
-  <minAmplitudeCut> 40 </minAmplitudeCut>
+  <minAmplitudeCut> 100 </minAmplitudeCut>
 
   <qaFileName> TOFFQA.root </qaFileName>
 
@@ -49,7 +49,7 @@
     <nBinsX>     200 </nBinsX>
     <xMin>        0 </xMin>
     <xMax>        1300 </xMax>
-    <nBinsY>     50 </nBinsY>
+    <nBinsY>     200 </nBinsY>
     <yMin> 0 </yMin>
     <yMax> 1300 </yMax>
     <histTitle> PMT Amplitude Correlation, Scintillator </histTitle>
@@ -62,8 +62,8 @@
     <xMin>        0 </xMin>
     <xMax>        32 </xMax>
     <nBinsY>     50 </nBinsY>
-    <yMin> -200 </yMin>
-    <yMax> 200 </yMax>
+    <yMin> -2000 </yMin>
+    <yMax> 2000 </yMax>
     <histTitle> Hit XY </histTitle>
     <xAxisTitle> Scintillator Id </xAxisTitle>
     <yAxisTitle> Y [cm] </yAxisTitle>

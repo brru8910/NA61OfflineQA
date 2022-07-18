@@ -29,13 +29,21 @@ void DrawWithUncertaintyEnvelope(TObject* object) {
   const int color = graph->GetMarkerColor();
 
   graph->SetLineColor(color);
-  graph->SetLineWidth(4);
+  graph->SetLineWidth(2);
   graph->SetFillColor(color);
   graph->SetFillColorAlpha(color,0.5);
-  // graph->Draw("a3");
-  // graph->Draw("LX SAME");
-  graph->Draw("alp");
-  // graph->Draw("LX SAME");
+  graph->Draw("a3");
+  graph->Draw("LX SAME");
+}
+
+void NormalizeTH1D(TObject* object) {
+  //This must be a TH1D*!
+  if (string(object->ClassName()) != string("TH1D")) {
+    cout << "[ERROR] Tried to fit for Max ADC on a non-TH1D object!" << endl;
+  }
+  
+  TH1D* histogram = static_cast<TH1D*>(object);  
+  histogram->Scale(100./histogram.GetEntries());
 }
 
 void FitForMaxADC(TObject* object) {
@@ -67,6 +75,15 @@ void ProcessPlots(const char* filename="../OfflineQA.root")
 {
   vector<string> objectsToNotDraw {"TTree","TNtuple"}; 
 
+  vector<string> objectsToNormalize {
+    "S1Counts",
+      "T1Counts",
+      "T2Counts",
+      "T3Counts",
+      "T4Counts",
+      "EventComposition"
+      }; 
+
   //Objects for which to draw uncertainty envelope. For scalers
   //graphs.
   set<string> uncertaintyEnvelopeObjects {
@@ -82,7 +99,14 @@ void ProcessPlots(const char* filename="../OfflineQA.root")
   //name. Value: Draw options.
   map<string,string> specialDrawOptionsMap {
     {"runNumberGraph","AL"},
-    {"eventIdGraph","AL"}
+      {"eventIdGraph","AL"},
+	{"S1Counts","TEXT"},
+	  {"T1Counts","TEXT"},
+	    {"T2Counts","TEXT"},
+	      {"T3Counts","TEXT"},
+		{"T4Counts","TEXT"},
+		  {"EventComposition","TEXT"}
+
   };
   
   //Default special draw options for plot types.
@@ -98,10 +122,12 @@ void ProcessPlots(const char* filename="../OfflineQA.root")
   };
   //Add histogram names to be plotted with log Y-scale here.
   vector<string> objectsWithLogY{
+    "S1_1MHTDC","T1MHTDC","T2MHTDC","T3MHTDC","T4MHTDC",
+    "S1_1Counts","T1Counts","T2Counts","T3Counts","T4Counts"
   };
   //Add histogram names to be plotted with log Z-scale here.
   vector<string> objectsWithLogZ{
-    "SecondaryVerticesXZ","SecondaryVerticesZY","SecondaryVerticesZX","Cl_XY","Cl_ZX","Cl_ZY"
+    "SecondaryVerticesXZ","SecondaryVerticesZY","SecondaryVerticesZX","Cl_XY","Cl_ZX","Cl_ZY","hitXY"
   };
   map<string,double> graphMins {
     {"T2T1Ratio",0},
@@ -166,6 +192,10 @@ void ProcessPlots(const char* filename="../OfflineQA.root")
     //Make sure we should draw this type of object.
     if (find(objectsToNotDraw.begin(),objectsToNotDraw.end(),type) != objectsToNotDraw.end())
       continue;
+
+    //Normalize Histograms.
+    if (objectsToNormalize.find(name) != objectsToNotDraw.end())
+      NormalizeTH1D(obj);
     
     TCanvas c("QACanvas", "", 900, 600);
 
