@@ -2,7 +2,7 @@
 
 #################### User definitions section ##########################
 
-INTERNALOUTPUTS="TPCClusterQA.root TPCVertexQA.root TDAQQA.root TOFFQA.root"
+INTERNALOUTPUTS="TPCClusterQA.root TPCVertexQA.root TDAQQA.root TOFFQA.root GRCClusterQA.root "
 
 #################### Enf of user definitions section ###################
 

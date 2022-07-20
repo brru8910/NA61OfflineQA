@@ -14,6 +14,7 @@
       <module> EventFileReaderSG               </module>
       <module> DRS4CalibratorKA                </module>
       <module> TPCClusterFinderAL              </module>
+      <module> GRCClusterFinderAL              </module>
       <module> ExBCorrectorSG                  </module>
       <module> LocalTrackFinderBR              </module>
       <module> GlobalTrackMergerBR             </module>
@@ -27,6 +28,7 @@
       <module> TPCClusterQA                    </module>      
       <module> TPCVertexQA                     </module>
       <module> TDAQQA                          </module>
+      <module> GRCClusterQA                    </module>
       <module> TOFFQualityAssessmentKA         </module>
    </loop>
 

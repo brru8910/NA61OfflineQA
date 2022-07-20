@@ -104,6 +104,7 @@ if [ $EXITCODE -eq 0 ]; then
     #FIXME LOOP THROUGH QAs!!
     echo 'Copying files: '
     ls *.TPCClusterQA.root
+    ls *.GRCClusterQA.root
     ls *.TPCVertexQA.root
     ls *.TDAQQA.root
     ls *.TOFFQA.root
@@ -113,6 +114,7 @@ if [ $EXITCODE -eq 0 ]; then
     cp -f *.TPCVertexQA.root $reco_drop_dir
     cp -f *.TDAQQA.root $reco_drop_dir
     cp -f *.TOFFQA.root $reco_drop_dir
+    cp -f *.GRCClusterQA.root $reco_drop_dir
 fi
 
 exit $EXITCODE

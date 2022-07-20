@@ -43,6 +43,10 @@
         xlink:href = "TPCClusterFinderAL.xml"/>
     
     <configLink
+	id         = "GRCClusterFinderAL"
+        xlink:href = "&configDir;/GRCClusterFinderAL.xml"/>
+    
+    <configLink
         id         = "DRS4CalibrationManager"
         xlink:href = "./DRS4CalibrationManager.xml"/>
 
@@ -85,6 +89,10 @@
     <configLink
 	id         = "TDAQQA"
         xlink:href = "&configDir;/TDAQQA.xml"/>
+        
+    <configLink
+	id         = "GRCClusterQA"
+        xlink:href = "&configDir;/GRCClusterQA.xml"/>
         
     <configLink
         id         = "TOFFQualityAssessmentKA"

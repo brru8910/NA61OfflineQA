@@ -19,9 +19,11 @@ using namespace std;
 void DrawWithUncertaintyEnvelope(TObject* object) {
   //This must be a TGraphErrors*!
   if (string(object->ClassName()) != string("TGraphErrors")) {
-    cout << "[ERROR] Tried to fit for Max ADC on a non-TGraphErrors object!" << endl;
+    cout << "[ERROR] Tried to fit for Max ADC on a non-TGraphErrors object! Which? " 
+	 <<  object->GetName() << endl;
+    return;
   }
-  
+
   cout << "Making nice envelope plot for object " << object->GetName() << endl;
 
   TGraphErrors* graph = static_cast<TGraphErrors*>(object);
@@ -36,14 +38,73 @@ void DrawWithUncertaintyEnvelope(TObject* object) {
   graph->Draw("LX SAME");
 }
 
+void IncreaseTH1DPlotMax(TObject* object, const double factor = 1.2) {
+  //This must be a TH1D*!
+  if (string(object->ClassName()) != string("TH1D")) {
+    cout << "[ERROR] Tried to increase plot max of a non-TH1D object! Which? "
+	 << object->GetName() << endl;
+    return;
+  }
+
+  TH1D* histogram = static_cast<TH1D*>(object);  
+
+  histogram->SetMaximum(factor*histogram->GetMaximum());
+}
+
+void OverlayTH1Ds(TObject* object1,TObject* object1) {
+  //This must be a TH1D*!
+  if (string(object->ClassName()) != string("TH1D") ||
+      string(object->ClassName()) != string("TH1D") ) {
+    cout << "[ERROR] Tried to overlay non-TH1D object!"<< endl;
+    return;
+  }
+
+  TH1D* histogram1 = static_cast<TH1D*>(object1);  
+  TH1D* histogram2 = static_cast<TH1D*>(object2);  
+  
+  const double max = (histogram1->GetMaximum() > histogram2->GetMaximum()) ?
+    histogram1->GetMaximum() : histogram2->GetMaximum();
+
+  histogram1->SetLineColor(kBlue-2);
+  histogram2->SetLineColor(kOrange+2);
+  histogram1->SetLineWidth(1.5);
+  histogram2->SetLineWidth(1.5);
+
+  
+  histogram1->SetMaximum(max);
+  histogram2->SetMaximum(max);
+
+  histogram1->Draw();
+  histogram2->Draw("SAME");
+}
+
 void NormalizeTH1D(TObject* object) {
   //This must be a TH1D*!
   if (string(object->ClassName()) != string("TH1D")) {
-    cout << "[ERROR] Tried to fit for Max ADC on a non-TH1D object!" << endl;
+    cout << "[ERROR] Tried to normalize a non-TH1D object! Which? "
+	 << object->GetName() << endl;
+    return;
   }
-  
+
   TH1D* histogram = static_cast<TH1D*>(object);  
-  histogram->Scale(100./histogram.GetEntries());
+
+  if (histogram->GetEntries() == 0)
+    return;
+
+  histogram->Scale(100./histogram->GetEntries());
+}
+
+void IncreaseTH1DMarkerSize(TObject* object, const double size) {
+  //This must be a TH1D*!
+  if (string(object->ClassName()) != string("TH1D")) {
+    cout << "[ERROR] Tried to increase marker size of a non-TH1D object! Which?"
+	 << object->GetName() << endl;
+    return;
+  }
+
+  TH1D* histogram = static_cast<TH1D*>(object);  
+
+  histogram->SetMarkerSize(size);
 }
 
 void FitForMaxADC(TObject* object) {
@@ -73,9 +134,9 @@ void FitForMaxADC(TObject* object) {
 
 void ProcessPlots(const char* filename="../OfflineQA.root")
 {
-  vector<string> objectsToNotDraw {"TTree","TNtuple"}; 
+  set<string> objectsToNotDraw {"TTree","TNtuple"}; 
 
-  vector<string> objectsToNormalize {
+  set<string> objectsToNormalize {
     "S1Counts",
       "T1Counts",
       "T2Counts",
@@ -100,13 +161,22 @@ void ProcessPlots(const char* filename="../OfflineQA.root")
   map<string,string> specialDrawOptionsMap {
     {"runNumberGraph","AL"},
       {"eventIdGraph","AL"},
-	{"S1Counts","TEXT"},
-	  {"T1Counts","TEXT"},
-	    {"T2Counts","TEXT"},
-	      {"T3Counts","TEXT"},
-		{"T4Counts","TEXT"},
-		  {"EventComposition","TEXT"}
+    	{"S1Counts","HIST TEXT"},
+    	  {"T1Counts","HIST TEXT"},
+    	    {"T2Counts","HIST TEXT"},
+    	      {"T3Counts","HIST TEXT"},
+    		{"T4Counts","HIST TEXT"},
+    		  {"EventComposition","HIST TEXT"}
+  };
 
+  //Add object names with text option here to increase text font size.
+  map<string,double> textSizeMap {
+    	{"S1Counts",2.2},
+    	  {"T1Counts",2.2},
+    	    {"T2Counts",2.2},
+    	      {"T3Counts",2.2},
+    		{"T4Counts",2.2},
+    		  {"EventComposition",2.2}
   };
   
   //Default special draw options for plot types.
@@ -115,19 +185,21 @@ void ProcessPlots(const char* filename="../OfflineQA.root")
       {"TGraphErrors","AP"},
 	{"TGraphAsymmErrors","AP"},
 	  {"TH2D","COLZ"},
-	    {"TH2F","COLZ"}
+	    {"TH2F","COLZ"},
+	      {"TProfile2D","COLZ"}
   };
   //Add histogram names to be plotted with log X-scale here.
   vector<string> objectsWithLogX{
   };
   //Add histogram names to be plotted with log Y-scale here.
   vector<string> objectsWithLogY{
-    "S1_1MHTDC","T1MHTDC","T2MHTDC","T3MHTDC","T4MHTDC",
-    "S1_1Counts","T1Counts","T2Counts","T3Counts","T4Counts"
+    "S1MHTDC","T1MHTDC","T2MHTDC","T3MHTDC","T4MHTDC",
+    "S1Counts","T1Counts","T2Counts","T3Counts","T4Counts"
   };
   //Add histogram names to be plotted with log Z-scale here.
   vector<string> objectsWithLogZ{
-    "SecondaryVerticesXZ","SecondaryVerticesZY","SecondaryVerticesZX","Cl_XY","Cl_ZX","Cl_ZY","hitXY"
+    "SecondaryVerticesXZ","SecondaryVerticesZY","SecondaryVerticesZX",
+      "Cl_XY","Cl_ZX","Cl_ZY","hitXY","pmtAmplitudeCorrelationScintillator"
   };
   map<string,double> graphMins {
     {"T2T1Ratio",0},
@@ -135,7 +207,7 @@ void ProcessPlots(const char* filename="../OfflineQA.root")
 	{"T1T3Ratio",0},
 	  {"T1S1Ratio",0},
 	    {"T3S1Ratio",0},
-	      {"S1Counts",0}
+	      {"S1Intensity",0}
   };
   map<string,double> graphMaxes {
     {"T2T1Ratio",1.1},
@@ -148,6 +220,9 @@ void ProcessPlots(const char* filename="../OfflineQA.root")
 
   //No stats.
   gStyle->SetOptStat(0);
+
+  //One sig fig in text draw options.
+  gStyle->SetPaintTextFormat("3.2f");
 
   //Make sure file is open.  
   TFile* file = new TFile(filename) ;
@@ -190,15 +265,23 @@ void ProcessPlots(const char* filename="../OfflineQA.root")
     }
     
     //Make sure we should draw this type of object.
-    if (find(objectsToNotDraw.begin(),objectsToNotDraw.end(),type) != objectsToNotDraw.end())
+    if (objectsToNotDraw.find(type) != objectsToNotDraw.end())
       continue;
 
     //Normalize Histograms.
-    if (objectsToNormalize.find(name) != objectsToNotDraw.end())
+    if (objectsToNormalize.find(name) != objectsToNormalize.end())
       NormalizeTH1D(obj);
     
     TCanvas c("QACanvas", "", 900, 600);
 
+    //Increase text size,if desired. Increase plot max at the same time.
+    if (textSizeMap.find(name) != textSizeMap.end()) {
+      IncreaseTH1DMarkerSize(obj,textSizeMap.at(name));
+      if (setLogY)
+	IncreaseTH1DPlotMax(obj,10.);
+      else 
+	IncreaseTH1DPlotMax(obj,1.2);
+    }
     //Draw with options. Include special options, if desired.
     if (uncertaintyEnvelopeObjects.find(name) != uncertaintyEnvelopeObjects.end())
       DrawWithUncertaintyEnvelope(obj);
@@ -223,8 +306,10 @@ void ProcessPlots(const char* filename="../OfflineQA.root")
     }
 
     //Fit for maxADC.
-    if (name.find("MaxADC") != string::npos)
+    if (name.find("MaxADC") != string::npos) {
+      cout << "Found MaxADC in name " << name << ". Position: " << name.find("MaxADC") << endl;
       FitForMaxADC(obj);
+    }
 
     const TString saveName = "plots/" + string(obj->GetName()) + ".png";
     c.SaveAs(saveName.Data());
