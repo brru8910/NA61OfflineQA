@@ -17,8 +17,7 @@ pdfMakerDirectory='/afs/cern.ch/user/n/na61qa/2022-p+T2K-OfflineQA/pdfMaker'
 cd $EOSDropDirectory
 
 #List of QA rootfile template names.
-#qaFiles=("TPCClusterQA" "TPCVertexQA" "TDAQQA" "TOFFQA" "GRCQA")
-qaFiles=("GRCClusterQA")
+qaFiles=("TPCClusterQA" "TPCVertexQA" "TDAQQA" "TOFFQA" "GRCClusterQA")
 
 for qaName in "${qaFiles[@]}"
 do
@@ -41,7 +40,7 @@ do
     root -b -q 'ProcessPlots.C("'$EOSDropDirectory'/'$qaName'.root")'
     #Remove hadd'ed files and lists of files.
     cd $EOSDropDirectory
-#    rm $qaName.root
+    rm $qaName.root
     rm haddList$qaName.txt
 done
 

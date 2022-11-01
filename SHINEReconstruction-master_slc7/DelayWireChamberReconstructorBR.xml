@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<DelayWireChamberReconstructorBR
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="[SCHEMAPATH]/DelayWireChamberReconstructorBR.xsd">
+
+  <CalibrationConstants id="1">
+    <ChamberZ unit="cm"> -1460 </ChamberZ>
+    <OffsetX> 0.0231206  </OffsetX>
+    <SlopeX>  0.0182653  </SlopeX>
+    <OffsetY> 0.00570778 </OffsetY>
+    <SlopeY> -0.0181673  </SlopeY>
+  </CalibrationConstants>
+
+  <CalibrationConstants id="2">
+    <ChamberZ unit="cm"> 2540 </ChamberZ>
+    <OffsetX> -0.0202045   </OffsetX>
+    <SlopeX>  0.0182934   </SlopeX>
+    <OffsetY> -0.0798591 </OffsetY>
+    <SlopeY> -0.0183462 </SlopeY>
+  </CalibrationConstants>
+
+  <AnalysisFileName> DelayWireChamberReconstructionBR.root </AnalysisFileName>
+
+</DelayWireChamberReconstructorBR>

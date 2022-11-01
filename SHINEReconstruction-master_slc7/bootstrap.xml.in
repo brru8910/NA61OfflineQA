@@ -22,13 +22,17 @@
 
   <centralConfig>
 
+   <configLink
+	id         = "TPCPadGainFixedManager"
+	xlink:href = "/afs/cern.ch/user/n/na61qa/SHINEInstallations/src-Master/Applications/Examples/Calibration/TPCKrCalibrationBR/FullStats/PreCalibration/TPCPadGainFixedManager-VTPC1Kr.xml"/>
+
     <configLink
       id         = "DManagerRegister"
       xlink:href = "DManagerRegisterStaticConfig.xml"/>
 
     <configLink
       id         = "ModuleSequence"
-      xlink:href = "ModuleSequence.xml"/>
+      xlink:href = "ModuleSequence-KrCalibration.xml"/>
 
     <configLink
       id         = "EventFileReader"
@@ -97,6 +101,14 @@
     <configLink
         id         = "TOFFQualityAssessmentKA"
         xlink:href = "TOFFQualityAssessmentKA.xml"/>
+
+    <configLink
+        id         = "DelayWireChamberReconstructorBR"
+        xlink:href = "DelayWireChamberReconstructorBR.xml"/>
+
+    <configLink
+        id         = "TPCKrCalibrationMN"
+        xlink:href = "&configDir;/TPCKrCalibrationMN.xml"/>
 
   </centralConfig>
 

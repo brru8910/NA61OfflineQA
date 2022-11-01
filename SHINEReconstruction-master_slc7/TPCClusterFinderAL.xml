@@ -15,11 +15,11 @@
   <!-- Minimum ADC amplitude where cluster finding is initiated. -->
   <!-- Set to a large value of 15 here to restore cluster finding efficiency
   in troublesome MTPC/VTPC sectors and in most of the GTPC. -->
-  <adcCutInitial> 9 </adcCutInitial>
+  <adcCutInitial> 3 </adcCutInitial>
   <!-- Minimum ADC amplitude where cluster finding is continued. -->
   <!-- Set to a large value of 13 here to restore cluster finding efficiency
   in troublesome MTPC/VTPC sectors and in most of the GTPC. -->
-  <adcCutNeighborSearch> 6 </adcCutNeighborSearch>
+  <adcCutNeighborSearch> 3 </adcCutNeighborSearch>
   <!-- Minimum width of clusters in time direction in units of time slices
        (in order to reject a typical noise pattern). -->
   <timeWidthCut> 1 </timeWidthCut>
@@ -38,16 +38,16 @@
   <!-- Set this variable to 1 if you do not want chamber-by-chamber T0 correction. -->
   <noChamberByChamberT0Correction> 1 </noChamberByChamberT0Correction>
   <!-- Set this variable to 1 if you do not want pad-by-pad T0 correction. -->
-  <noPadByPadT0Correction> 1 </noPadByPadT0Correction>
+  <noPadByPadT0Correction> 0 </noPadByPadT0Correction>
 
   <!-- Set this variable to 1 if you do not want pad-by-pad gain correction. -->
-  <noPadByPadGainCorrection> 1 </noPadByPadGainCorrection>
+  <noPadByPadGainCorrection> 0 </noPadByPadGainCorrection>
 
   <!-- Set this variable to 1 if you do not want charge correction for charge loss during drift. -->
   <noChargeLossCorrection> 1 </noChargeLossCorrection>
 
   <!-- Set this variable to 1 if you want to specify drift velocity by hand. -->
-  <useCustomDriftVelocity> 0 </useCustomDriftVelocity>
+  <useCustomDriftVelocity> 1 </useCustomDriftVelocity>
   <!-- Forced drift velocity value (if one uses custom value specified by user). -->
   <customDriftVelocity unit="cm/microsecond"> 0.89 </customDriftVelocity>
 

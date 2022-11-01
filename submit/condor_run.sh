@@ -108,6 +108,8 @@ if [ $EXITCODE -eq 0 ]; then
     ls *.TPCVertexQA.root
     ls *.TDAQQA.root
     ls *.TOFFQA.root
+    ls *.DelayWireChamberReconstructionBR.root
+    ls *.krCalibration.root
     echo 'To directory:'
     echo $reco_drop_dir
     cp -f *.TPCClusterQA.root $reco_drop_dir
@@ -115,6 +117,8 @@ if [ $EXITCODE -eq 0 ]; then
     cp -f *.TDAQQA.root $reco_drop_dir
     cp -f *.TOFFQA.root $reco_drop_dir
     cp -f *.GRCClusterQA.root $reco_drop_dir
+    cp -f *.DelayWireChamberReconstructionBR.root $reco_drop_dir
+    cp -f *.krCalibration.root $reco_drop_dir
 fi
 
 exit $EXITCODE

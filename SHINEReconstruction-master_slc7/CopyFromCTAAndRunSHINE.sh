@@ -62,8 +62,8 @@ make
 source runModuleSeq.sh -i "./"$INPUT_FILENAME -o $BASE_NAME -b bootstrap.xml -k $GLOBAL_KEY -v pp -m on
 
 #Remove the file and clean up.
-rm  ./$INPUT_FILENAME
+#rm  ./$INPUT_FILENAME
 rm bootstrap.xml
 
 #Remove chunk.
-rm $DIRECTORY/$INPUT_FILENAME
+#rm $DIRECTORY/$INPUT_FILENAME

@@ -51,10 +51,10 @@ void IncreaseTH1DPlotMax(TObject* object, const double factor = 1.2) {
   histogram->SetMaximum(factor*histogram->GetMaximum());
 }
 
-void OverlayTH1Ds(TObject* object1,TObject* object1) {
+void OverlayTH1Ds(TObject* object1,TObject* object2) {
   //This must be a TH1D*!
-  if (string(object->ClassName()) != string("TH1D") ||
-      string(object->ClassName()) != string("TH1D") ) {
+  if (string(object1->ClassName()) != string("TH1D") ||
+      string(object2->ClassName()) != string("TH1D") ) {
     cout << "[ERROR] Tried to overlay non-TH1D object!"<< endl;
     return;
   }
@@ -67,8 +67,8 @@ void OverlayTH1Ds(TObject* object1,TObject* object1) {
 
   histogram1->SetLineColor(kBlue-2);
   histogram2->SetLineColor(kOrange+2);
-  histogram1->SetLineWidth(1.5);
-  histogram2->SetLineWidth(1.5);
+  histogram1->SetLineWidth(2);
+  histogram2->SetLineWidth(2);
 
   
   histogram1->SetMaximum(max);
